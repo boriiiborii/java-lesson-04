@@ -58,7 +58,7 @@ public class ModularExample {
      * 상속하여 구현한 Vehicle 객체를 반환해야 합니다.
      */
     public static Vehicle getVehicle() {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        return new HwajinCar();
     }
 
     // 해당 클래스를 상속하여 구현하여야 합니다.
@@ -170,6 +170,29 @@ public class ModularExample {
         @Override
         public int tickModify() {
             return 10;
+        }
+    }
+
+    static class HwajinCar extends Vehicle {
+        @Override
+        public Energy getEnergy() {
+            // 여기서는 사용할 Energy 객체를 반환합니다.
+            // 이 예제에서는 CoalEnergy를 사용하도록 하겠습니다.
+            return new CoalEnergy();
+        }
+
+        @Override
+        public VehicleType getType() {
+            // 여기서는 탈것의 타입을 반환합니다.
+            // 이 예제에서는 Car를 사용하도록 하겠습니다.
+            return new Car();
+        }
+
+        @Override
+        public void onTick(int currentTick, int fuel) {
+            // 여기에는 각 틱이 실행되기 전에 수행할 작업을 구현합니다.
+            // 현재 틱과 남은 연료를 활용하여 추가 작업을 수행할 수 있습니다.
+            // 이 예제에서는 아무 작업도 수행하지 않도록 하겠습니다.
         }
     }
 }
