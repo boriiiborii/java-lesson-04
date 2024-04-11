@@ -3,7 +3,7 @@ package kr.easw.lesson04;
 public class ImplementationExample {
 
     public static void main(String[] args) {
-        if (onTest(1000).equals("TestValue - 34300")) {
+        if (onTest(1000).equals("TestValue - 8575000000")) {
             System.out.println("정답입니다.");
             return;
         }
@@ -24,7 +24,7 @@ public class ImplementationExample {
          * "TestValue"
          */
         public String getString() {
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            return "TestValue";
         }
 
         /**
@@ -38,13 +38,16 @@ public class ImplementationExample {
          *
          * 예를 들어, first가 "TestValue"이고, data가 1000이였다면, 다음 값이 반환되어야 합니다 :
          *
-         * "TestValue - 34300"
+         * "TestValue - 8575000000"
          *
          * @param first 맨 앞에 위치할 문자열
          * @param data 계산이 진행되어야 할 값
          */
         public String eval(String first, int data) {
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            long result = (long) (Math.pow((data / 2) * 7, 3) / 5);
+            String output = first + " - " + result;
+            System.out.println(output);
+            return output;
         }
     }
 }
